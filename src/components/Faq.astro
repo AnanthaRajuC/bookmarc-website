@@ -1,0 +1,47 @@
+---
+const faqs = [
+  {
+    q: "Does Bookmarc sync across my devices?",
+    a: "No — by design. Bookmarc is local-first, so your library lives in one SQLite file on the computer you're using. Optional, end-to-end encrypted sync is on the roadmap, but it will always be opt-in.",
+  },
+  {
+    q: "Which browsers can I import from?",
+    a: "Chrome, Chromium, Edge, Brave, and Firefox are read directly from their own bookmarks files. Any other browser (including Safari) works via its standard \"Export bookmarks\" HTML file.",
+  },
+  {
+    q: "Is there a subscription?",
+    a: "No. Bookmarc is a one-time purchase that activates the app with a license key, and free updates are included.",
+  },
+  {
+    q: "What happens if I lose internet access?",
+    a: "Nothing changes — the app works fully offline. License validation has an offline grace period so a network hiccup never locks you out mid-session.",
+  },
+  {
+    q: "Can I get my data out if I stop using Bookmarc?",
+    a: "Yes. Export your full library as CSV, JSON, or Markdown at any time, or just copy the underlying SQLite file.",
+  },
+];
+---
+
+<section id="faq" class="mx-auto max-w-3xl px-5 py-20">
+  <h2 class="mb-10 text-center text-[28px] font-extrabold tracking-tight text-text sm:text-[34px]">Questions</h2>
+
+  <div class="flex flex-col divide-y divide-border rounded-2xl border border-border bg-surface">
+    {
+      faqs.map((item) => (
+        <details class="group p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-[14px] font-bold text-text">
+            {item.q}
+            <span class="ml-4 shrink-0 text-text-tertiary transition-transform group-open:rotate-45">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-[13px] leading-relaxed text-text-secondary">{item.a}</p>
+        </details>
+      ))
+    }
+  </div>
+</section>

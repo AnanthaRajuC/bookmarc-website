@@ -1,0 +1,14 @@
+---
+interface Props {
+  size?: "sm" | "lg";
+}
+const { size = "sm" } = Astro.props;
+const box = size === "lg" ? "h-14 w-14 rounded-[18px]" : "h-7 w-7 rounded-[10px]";
+const icon = size === "lg" ? "h-7 w-7" : "h-4 w-4";
+---
+
+<div class={`flex shrink-0 items-center justify-center bg-accent-solid ${box}`}>
+  <svg class={`${icon} text-white`} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M6 4h12a1 1 0 0 1 1 1v15l-7-4.5L5 20V5a1 1 0 0 1 1-1z" />
+  </svg>
+</div>

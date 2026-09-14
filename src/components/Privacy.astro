@@ -1,0 +1,30 @@
+---
+const points = [
+  { title: "One SQLite file", body: "Your whole library lives in a single local database file on your computer. Nothing is uploaded anywhere." },
+  { title: "No account", body: "No sign-up, no login, no email required to use the app day to day." },
+  { title: "No telemetry", body: "Bookmarc doesn't phone home. Dead-link checks and every other feature run entirely from your own machine." },
+  { title: "License, not subscription", body: "A one-time purchase activates the app; validation has an offline grace period, so you're never locked out by a network hiccup." },
+];
+---
+
+<section id="privacy" class="border-y border-border bg-surface-2/50 py-20">
+  <div class="mx-auto max-w-5xl px-5">
+    <div class="mx-auto mb-12 max-w-xl text-center">
+      <h2 class="text-[28px] font-extrabold tracking-tight text-text sm:text-[34px]">Local-first, actually</h2>
+      <p class="mt-3 text-[14.5px] leading-relaxed text-text-secondary">
+        Not "local-first" as a marketing line — there is no server for your bookmarks to sync to in the first place.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {
+        points.map((p) => (
+          <div class="rounded-2xl border border-border bg-surface p-5">
+            <div class="mb-1.5 text-[14px] font-bold text-text">{p.title}</div>
+            <p class="text-[12.5px] leading-relaxed text-text-secondary">{p.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Same "Refined Neutral" tokens as the Bookmarc app (src/index.css), so the
+   marketing site reads as the same product rather than a separate brand. */
+:root {
+  --bg: oklch(97.3% 0.009 75);
+  --surface: oklch(99.2% 0.004 75);
+  --surface-2: oklch(95.3% 0.009 75);
+  --border: oklch(89% 0.011 75);
+  --border-strong: oklch(79% 0.014 75);
+  --text: oklch(23% 0.017 264);
+  --text-secondary: oklch(48% 0.018 264);
+  --text-tertiary: oklch(59% 0.015 264);
+  --accent: oklch(46% 0.17 293);
+  --accent-hover: oklch(40% 0.18 293);
+  --accent-solid: oklch(46% 0.17 293);
+  --accent-solid-hover: oklch(40% 0.18 293);
+  --accent-tint: oklch(95.5% 0.022 293);
+  --success: oklch(60% 0.12 150);
+  --success-tint: oklch(94.5% 0.045 150);
+  --danger: oklch(56% 0.15 25);
+}
+
+.dark {
+  --bg: oklch(20% 0.014 264);
+  --surface: oklch(24% 0.016 264);
+  --surface-2: oklch(27.5% 0.017 264);
+  --border: oklch(33% 0.018 264);
+  --border-strong: oklch(41% 0.02 264);
+  --text: oklch(95% 0.008 264);
+  --text-secondary: oklch(74% 0.014 264);
+  --text-tertiary: oklch(58% 0.013 264);
+  --accent: oklch(76% 0.12 293);
+  --accent-hover: oklch(82% 0.11 293);
+  --accent-solid: oklch(54% 0.16 293);
+  --accent-solid-hover: oklch(48% 0.17 293);
+  --accent-tint: oklch(31% 0.05 293);
+  --success: oklch(68% 0.11 150);
+  --success-tint: oklch(27% 0.045 150);
+  --danger: oklch(66% 0.14 25);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-solid-hover: var(--accent-solid-hover);
+  --color-accent-tint: var(--accent-tint);
+  --color-success: var(--success);
+  --color-success-tint: var(--success-tint);
+  --color-danger: var(--danger);
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}

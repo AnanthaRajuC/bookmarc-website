@@ -1,0 +1,26 @@
+---
+import Logo from "./Logo.astro";
+import { siteConfig } from "../lib/siteConfig";
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 py-12 sm:flex-row sm:justify-between">
+    <div class="flex items-center gap-2.5">
+      <Logo />
+      <span class="text-[13.5px] font-bold text-text">{siteConfig.name}</span>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[12.5px] font-semibold text-text-secondary">
+      <a href="#features" class="hover:text-text">Features</a>
+      <a href="#pricing" class="hover:text-text">Pricing</a>
+      <a href="#faq" class="hover:text-text">FAQ</a>
+      <a href="/privacy" class="hover:text-text">Privacy Policy</a>
+      <a href={siteConfig.githubRepoUrl} class="hover:text-text">GitHub</a>
+      <a href={`mailto:${siteConfig.supportEmail}`} class="hover:text-text">Support</a>
+    </div>
+  </div>
+  <div class="border-t border-border px-5 py-5 text-center text-[11.5px] text-text-tertiary">
+    © {year} {siteConfig.name}. All rights reserved.
+  </div>
+</footer>

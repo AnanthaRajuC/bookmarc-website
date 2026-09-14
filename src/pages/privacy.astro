@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { siteConfig } from "../lib/siteConfig";
+---
+
+<Layout title="Privacy Policy">
+  <Header />
+  <main class="mx-auto max-w-2xl px-5 py-16">
+    <h1 class="mb-2 text-[28px] font-extrabold tracking-tight text-text">Privacy Policy</h1>
+    <p class="mb-10 text-[12.5px] text-text-tertiary">Last updated: REPLACE_ME</p>
+
+    <div class="flex flex-col gap-6 text-[14px] leading-relaxed text-text-secondary">
+      <p>
+        {siteConfig.name} is a local-first desktop application. Your bookmarks, folders, tags, notes, and every other
+        piece of data you create in the app are stored in a single SQLite database file on your own computer. The
+        app does not sync that data to a server, and we do not have access to it.
+      </p>
+
+      <section>
+        <h2 class="mb-2 text-[15px] font-bold text-text">What we don't collect</h2>
+        <ul class="list-disc space-y-1.5 pl-5">
+          <li>No bookmark content, titles, URLs, tags, or notes ever leave your device.</li>
+          <li>No usage analytics or telemetry are collected by the app.</li>
+          <li>No account or sign-up is required to use {siteConfig.name} day to day.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="mb-2 text-[15px] font-bold text-text">License activation</h2>
+        <p>
+          Activating a purchased license validates your license key against our payment provider (Lemon Squeezy) to
+          confirm it's valid. This exchange includes only what's needed to activate the license — no bookmark data is
+          part of it — and the app keeps working during an offline grace period if that check can't reach the
+          network.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-2 text-[15px] font-bold text-text">This website</h2>
+        <p>
+          REPLACE_ME — describe any analytics or cookies used by this marketing site itself (e.g. none, or a
+          privacy-respecting analytics tool), separately from the desktop app described above.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-2 text-[15px] font-bold text-text">Contact</h2>
+        <p>
+          Questions about this policy can be sent to <a class="text-accent" href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>

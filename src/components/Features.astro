@@ -1,0 +1,58 @@
+---
+const features = [
+  {
+    title: "Import from anywhere",
+    body: "Pull bookmarks straight from Chrome, Chromium, Edge, Brave, or Firefox, or import any browser's standard HTML export. Duplicates and tracking-param variants are matched automatically.",
+  },
+  {
+    title: "Add a bookmark in two seconds",
+    body: "Paste a URL to save a single page instantly — no import required. A first-run checklist gets new users oriented without getting in the way.",
+  },
+  {
+    title: "Organize your way",
+    body: "Folders, categories with auto-classification rules, free-form tags, notes, and a read/unread flag — combine whichever ones fit how you actually think about your links.",
+  },
+  {
+    title: "Smart filters & Quick Links",
+    body: "Save a search + filter combination as a live, reusable view. Or group frequently used URLs and open them all as new tabs with one click — perfect for a recurring research session.",
+  },
+  {
+    title: "Find what's broken",
+    body: "An async dead-link checker flags pages that no longer load, and a Duplicates screen groups repeat saves so you can clean up in one pass.",
+  },
+  {
+    title: "Know your habits",
+    body: "Analytics shows bookmarking activity over time, top hosts, category breakdowns, and a Library Health card tying dead links, duplicates, and forgotten bookmarks together.",
+  },
+  {
+    title: "Built for the keyboard",
+    body: "A command palette (Ctrl/Cmd+K) jumps to any screen or action, and full arrow-key navigation lets you browse, select, and open bookmarks without touching the mouse.",
+  },
+  {
+    title: "Never lose your data",
+    body: "Automatic local, online-safe SQLite backups with one-click restore, plus export to CSV, JSON, or Markdown whenever you want a copy outside the app.",
+  },
+];
+---
+
+<section id="features" class="mx-auto max-w-6xl px-5 py-20">
+  <div class="mx-auto mb-12 max-w-xl text-center">
+    <h2 class="text-[28px] font-extrabold tracking-tight text-text sm:text-[34px]">Everything a bookmark deserves</h2>
+    <p class="mt-3 text-[14.5px] leading-relaxed text-text-secondary">
+      Not just a list of links — a proper library, with the organization, health-checking, and insight tools your
+      browser's built-in bookmarks never gave you.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      features.map((f) => (
+        <div class="rounded-2xl border border-border bg-surface p-5">
+          <div class="mb-3 h-2 w-2 rounded-full bg-accent" />
+          <div class="mb-1.5 text-[14px] font-bold text-text">{f.title}</div>
+          <p class="text-[12.5px] leading-relaxed text-text-secondary">{f.body}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

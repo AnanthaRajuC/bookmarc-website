@@ -1,0 +1,53 @@
+---
+import { siteConfig } from "../lib/siteConfig";
+import CheckIcon from "./CheckIcon.astro";
+---
+
+<section id="pricing" class="mx-auto max-w-5xl px-5 py-20">
+  <div class="mx-auto mb-12 max-w-xl text-center">
+    <h2 class="text-[28px] font-extrabold tracking-tight text-text sm:text-[34px]">One price, yours for good</h2>
+    <p class="mt-3 text-[14.5px] leading-relaxed text-text-secondary">No subscription. Buy once, use it forever, get updates for free.</p>
+  </div>
+
+  <div class="mx-auto max-w-sm rounded-2xl border border-border bg-surface p-8 text-center shadow-[0_10px_30px_-8px_rgba(40,32,20,0.14)]">
+    <div class="text-[40px] font-extrabold tracking-tight text-text">{siteConfig.price}</div>
+    <p class="mt-1 text-[12.5px] text-text-tertiary">{siteConfig.priceNote}</p>
+
+    <a
+      href={siteConfig.checkoutUrl}
+      class="mt-6 flex h-11 w-full items-center justify-center rounded-[12px] bg-accent-solid text-[14px] font-bold text-white hover:bg-accent-solid-hover"
+    >
+      Buy Bookmarc
+    </a>
+
+    <div class="mt-6 flex flex-col gap-2 border-t border-border pt-6 text-left text-[13px] text-text-secondary">
+      <div class="flex items-center gap-2">
+        <CheckIcon />
+        Every feature, no tiers
+      </div>
+      <div class="flex items-center gap-2">
+        <CheckIcon />
+        Free updates
+      </div>
+      <div class="flex items-center gap-2">
+        <CheckIcon />
+        Works fully offline
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto mt-12 max-w-2xl text-center">
+    <div class="mb-4 text-[13px] font-bold uppercase tracking-wide text-text-tertiary">Available for</div>
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <a href={siteConfig.downloads.mac} class="flex h-10 items-center rounded-[11px] border border-border-strong px-5 text-[13px] font-bold text-text hover:bg-surface-2">
+        macOS
+      </a>
+      <a href={siteConfig.downloads.windows} class="flex h-10 items-center rounded-[11px] border border-border-strong px-5 text-[13px] font-bold text-text hover:bg-surface-2">
+        Windows
+      </a>
+      <a href={siteConfig.downloads.linux} class="flex h-10 items-center rounded-[11px] border border-border-strong px-5 text-[13px] font-bold text-text hover:bg-surface-2">
+        Linux
+      </a>
+    </div>
+  </div>
+</section>
