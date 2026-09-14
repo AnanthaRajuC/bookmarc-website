@@ -5,16 +5,16 @@ import { siteConfig } from "../lib/siteConfig";
 
 <header class="sticky top-0 z-20 border-b border-border bg-surface/85 backdrop-blur">
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-    <a href="/" class="flex items-center gap-2.5">
+    <a href={import.meta.env.BASE_URL} class="flex items-center gap-2.5">
       <Logo />
       <span class="text-[15px] font-extrabold tracking-tight text-text">{siteConfig.name}</span>
     </a>
 
     <nav class="hidden items-center gap-7 text-[13.5px] font-semibold text-text-secondary md:flex">
-      <a href="#features" class="hover:text-text">Features</a>
-      <a href="#privacy" class="hover:text-text">Privacy</a>
-      <a href="#pricing" class="hover:text-text">Pricing</a>
-      <a href="#faq" class="hover:text-text">FAQ</a>
+      <a href={`${import.meta.env.BASE_URL}#features`} class="hover:text-text">Features</a>
+      <a href={`${import.meta.env.BASE_URL}#privacy`} class="hover:text-text">Privacy</a>
+      <a href={`${import.meta.env.BASE_URL}#pricing`} class="hover:text-text">Pricing</a>
+      <a href={`${import.meta.env.BASE_URL}#faq`} class="hover:text-text">FAQ</a>
       <a href={siteConfig.githubRepoUrl} class="hover:text-text">GitHub</a>
     </nav>
 
@@ -33,7 +33,7 @@ import { siteConfig } from "../lib/siteConfig";
         </svg>
       </button>
       <a
-        href="#pricing"
+        href={`${import.meta.env.BASE_URL}#pricing`}
         class="hidden h-9 items-center rounded-[11px] bg-accent-solid px-4 text-[13px] font-bold text-white hover:bg-accent-solid-hover sm:flex"
       >
         Download
