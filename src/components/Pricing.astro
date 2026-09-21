@@ -1,57 +1,80 @@
 ---
 import { siteConfig } from "../lib/siteConfig";
 import CheckIcon from "./CheckIcon.astro";
+
+const perks = ["14-day free trial — no key, no account", "Every feature, no tiers", "Free updates", "Works fully offline"];
 ---
 
-<section id="pricing" class="mx-auto max-w-5xl px-5 py-20">
-  <div class="mx-auto mb-12 max-w-xl text-center">
-    <h2 class="text-[28px] font-extrabold tracking-tight text-text sm:text-[34px]">One price, yours for good</h2>
-    <p class="mt-3 text-[14.5px] leading-relaxed text-text-secondary">No subscription. Buy once, use it forever, get updates for free.</p>
-  </div>
+<section id="pricing" class="section">
+  <div class="wrap section-pad">
+    <h2 class="section-title">One price, yours for good</h2>
+    <p style="margin:0 0 40px;max-width:52ch;font-size:15px" class="text-muted">No subscription. Buy once, use it forever, updates included.</p>
 
-  <div class="mx-auto max-w-sm rounded-2xl border border-border bg-surface p-8 text-center shadow-[0_10px_30px_-8px_rgba(40,32,20,0.14)]">
-    <div class="text-[40px] font-extrabold tracking-tight text-text">{siteConfig.price}</div>
-    <p class="mt-1 text-[12.5px] text-text-tertiary">{siteConfig.priceNote}</p>
+    <div class="rule-grid" style="--min:320px;--bleed:34px;border-top:2px solid var(--color-divider)">
+      <div class="rule-cell" style="padding:32px">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(40px,5vw,64px);line-height:0.9;letter-spacing:-0.04em">{siteConfig.price}</div>
+        <p style="margin:12px 0 24px;font-size:13px" class="text-muted">{siteConfig.priceNote}</p>
+        <a href={siteConfig.checkoutUrl} class="btn btn-primary" style="text-decoration:none;height:48px;padding:0 24px;font-size:15px">Buy Bookmarc</a>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px;font-size:14px">
+          {
+            perks.map((perk) => (
+              <div style="display:flex;align-items:center;gap:10px">
+                <CheckIcon />
+                {perk}
+              </div>
+            ))
+          }
+        </div>
+      </div>
 
-    <a
-      href={siteConfig.checkoutUrl}
-      class="mt-6 flex h-11 w-full items-center justify-center rounded-[12px] bg-accent-solid text-[14px] font-bold text-white hover:bg-accent-solid-hover"
-    >
-      Buy Bookmarc
-    </a>
+      <div class="rule-cell" style="padding:32px">
+        <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px" class="text-muted">Available for</div>
 
-    <div class="mt-6 flex flex-col gap-2 border-t border-border pt-6 text-left text-[13px] text-text-secondary">
-      <div class="flex items-center gap-2">
-        <CheckIcon />
-        14-day free trial — no key, no account
-      </div>
-      <div class="flex items-center gap-2">
-        <CheckIcon />
-        Every feature, no tiers
-      </div>
-      <div class="flex items-center gap-2">
-        <CheckIcon />
-        Free updates
-      </div>
-      <div class="flex items-center gap-2">
-        <CheckIcon />
-        Works fully offline
-      </div>
-    </div>
-  </div>
+        <a href={siteConfig.downloads.mac} class="platform">
+          <span style="display:flex;align-items:center;gap:12px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><rect x="3" y="4" width="18" height="12"></rect><path d="M2 20h20"></path></svg>
+            <span class="platform-name">macOS</span>
+          </span>
+          <span style="font-size:12.5px" class="text-muted">Apple silicon &amp; Intel · .dmg</span>
+        </a>
+        <a href={siteConfig.downloads.windows} class="platform">
+          <span style="display:flex;align-items:center;gap:12px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5"></rect><rect x="13.5" y="3" width="7.5" height="7.5"></rect><rect x="3" y="13.5" width="7.5" height="7.5"></rect><rect x="13.5" y="13.5" width="7.5" height="7.5"></rect></svg>
+            <span class="platform-name">Windows</span>
+          </span>
+          <span style="font-size:12.5px" class="text-muted">Windows 10 and later · .exe</span>
+        </a>
+        <a href={siteConfig.downloads.linux} class="platform">
+          <span style="display:flex;align-items:center;gap:12px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 17l5-5-5-5"></path><path d="M12 19h8"></path></svg>
+            <span class="platform-name">Linux</span>
+          </span>
+          <span style="font-size:12.5px" class="text-muted">AppImage &amp; .deb</span>
+        </a>
 
-  <div class="mx-auto mt-12 max-w-2xl text-center">
-    <div class="mb-4 text-[13px] font-bold uppercase tracking-wide text-text-tertiary">Available for</div>
-    <div class="flex flex-wrap items-center justify-center gap-3">
-      <a href={siteConfig.downloads.mac} class="flex h-10 items-center rounded-[11px] border border-border-strong px-5 text-[13px] font-bold text-text hover:bg-surface-2">
-        macOS
-      </a>
-      <a href={siteConfig.downloads.windows} class="flex h-10 items-center rounded-[11px] border border-border-strong px-5 text-[13px] font-bold text-text hover:bg-surface-2">
-        Windows
-      </a>
-      <a href={siteConfig.downloads.linux} class="flex h-10 items-center rounded-[11px] border border-border-strong px-5 text-[13px] font-bold text-text hover:bg-surface-2">
-        Linux
-      </a>
+        <p style="margin:20px 0 0;font-size:12.5px" class="text-muted">Your license activates every platform. The library file moves between them untouched.</p>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .platform {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-divider);
+    color: inherit;
+    text-decoration: none;
+  }
+  .platform:hover {
+    color: var(--accent-ink);
+  }
+  .platform-name {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 20px;
+  }
+</style>

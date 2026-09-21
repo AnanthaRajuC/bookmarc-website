@@ -7,11 +7,13 @@ import { siteConfig } from "../lib/siteConfig";
 
 <Layout title="Privacy Policy">
   <Header />
-  <main class="mx-auto max-w-2xl px-5 py-16">
-    <h1 class="mb-2 text-[28px] font-extrabold tracking-tight text-text">Privacy Policy</h1>
-    <p class="mb-10 text-[12.5px] text-text-tertiary">Last updated: REPLACE_ME</p>
+  <main class="section">
+    <div class="wrap policy-wrap">
+    <div class="policy">
+    <h1>Privacy Policy</h1>
+    <p class="text-muted" style="margin-bottom:40px;font-size:12.5px">Last updated: REPLACE_ME</p>
 
-    <div class="flex flex-col gap-6 text-[14px] leading-relaxed text-text-secondary">
+    <div class="policy-body">
       <p>
         {siteConfig.name} is a local-first desktop application. Your bookmarks, folders, tags, notes, and every other
         piece of data you create in the app are stored in a single SQLite database file on your own computer. The
@@ -19,8 +21,8 @@ import { siteConfig } from "../lib/siteConfig";
       </p>
 
       <section>
-        <h2 class="mb-2 text-[15px] font-bold text-text">What we don't collect</h2>
-        <ul class="list-disc space-y-1.5 pl-5">
+        <h2>What we don't collect</h2>
+        <ul>
           <li>No bookmark content, titles, URLs, tags, or notes ever leave your device.</li>
           <li>No usage analytics or telemetry are collected by the app.</li>
           <li>No account or sign-up is required to use {siteConfig.name} day to day.</li>
@@ -28,7 +30,7 @@ import { siteConfig } from "../lib/siteConfig";
       </section>
 
       <section>
-        <h2 class="mb-2 text-[15px] font-bold text-text">Sites {siteConfig.name} contacts for you</h2>
+        <h2>Sites {siteConfig.name} contacts for you</h2>
         <p>
           A few features contact the websites you've bookmarked, directly from your computer: dead-link checks and feeds
           (only when you ask for them), site icons (which you can switch off in Settings), and saved page copies (only
@@ -39,7 +41,7 @@ import { siteConfig } from "../lib/siteConfig";
       </section>
 
       <section>
-        <h2 class="mb-2 text-[15px] font-bold text-text">Browser extension</h2>
+        <h2>Browser extension</h2>
         <p>
           The optional {siteConfig.name} browser extension sends the pages you save to the app on your own computer,
           over a local-only connection that stays off until you turn it on in the app and is protected by a code that
@@ -50,7 +52,7 @@ import { siteConfig } from "../lib/siteConfig";
       </section>
 
       <section>
-        <h2 class="mb-2 text-[15px] font-bold text-text">License activation</h2>
+        <h2>License activation</h2>
         <p>
           Activating a purchased license validates your license key against our payment provider (Lemon Squeezy) to
           confirm it's valid. This exchange includes only what's needed to activate the license — no bookmark data is
@@ -60,7 +62,7 @@ import { siteConfig } from "../lib/siteConfig";
       </section>
 
       <section>
-        <h2 class="mb-2 text-[15px] font-bold text-text">This website</h2>
+        <h2>This website</h2>
         <p>
           REPLACE_ME — describe any analytics or cookies used by this marketing site itself (e.g. none, or a
           privacy-respecting analytics tool), separately from the desktop app described above.
@@ -68,12 +70,47 @@ import { siteConfig } from "../lib/siteConfig";
       </section>
 
       <section>
-        <h2 class="mb-2 text-[15px] font-bold text-text">Contact</h2>
+        <h2>Contact</h2>
         <p>
-          Questions about this policy can be sent to <a class="text-accent" href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.
+          Questions about this policy can be sent to <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.
         </p>
       </section>
+    </div>
+    </div>
     </div>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .policy-wrap {
+    padding-block: clamp(40px, 6vw, 80px);
+  }
+  .policy {
+    max-width: 760px;
+  }
+  .policy h1 {
+    font-size: clamp(32px, 4.4vw, 52px);
+    letter-spacing: -0.03em;
+  }
+  .policy-body {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .policy-body p {
+    margin: 0;
+  }
+  .policy-body h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+  .policy-body ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+</style>

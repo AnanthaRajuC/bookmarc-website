@@ -1,64 +1,74 @@
 ---
 import Logo from "./Logo.astro";
 import { siteConfig } from "../lib/siteConfig";
+
+const base = import.meta.env.BASE_URL;
+const links = [
+  { href: "#how", label: "How it works" },
+  { href: "#features", label: "Features" },
+  { href: "#compare", label: "Compare" },
+  { href: "#privacy", label: "Privacy" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#changelog", label: "Releases" },
+];
 ---
 
-<header class="sticky top-0 z-20 border-b border-border bg-surface/85 backdrop-blur">
-  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-    <a href={import.meta.env.BASE_URL} class="flex items-center gap-2.5">
+<header style="position:sticky;top:0;z-index:30;background:var(--color-bg);border-bottom:2px solid var(--color-divider)">
+  <div class="wrap" style="display:flex;align-items:center;gap:24px;padding-block:14px">
+    <a href={`${base}#top`} style="display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;margin-right:auto">
       <Logo />
-      <span class="text-[15px] font-extrabold tracking-tight text-text">{siteConfig.name}</span>
+      <span style="font-family:var(--font-heading);font-weight:800;font-size:19px;letter-spacing:0.06em;text-transform:uppercase">{siteConfig.name}</span>
     </a>
 
-    <nav class="hidden items-center gap-7 text-[13.5px] font-semibold text-text-secondary md:flex">
-      <a href={`${import.meta.env.BASE_URL}#features`} class="hover:text-text">Features</a>
-      <a href={`${import.meta.env.BASE_URL}#privacy`} class="hover:text-text">Privacy</a>
-      <a href={`${import.meta.env.BASE_URL}#pricing`} class="hover:text-text">Pricing</a>
-      <a href={`${import.meta.env.BASE_URL}#faq`} class="hover:text-text">FAQ</a>
-      <a href={siteConfig.githubRepoUrl} class="hover:text-text">GitHub</a>
+    <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;font-size:14px">
+      {links.map((l) => <a href={`${base}${l.href}`} class="nav-link">{l.label}</a>)}
     </nav>
 
-    <div class="flex items-center gap-2.5">
-      <button
-        id="theme-toggle"
-        title="Toggle theme"
-        class="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] border border-border-strong text-text-secondary hover:bg-surface-2"
-      >
-        <svg id="theme-icon-sun" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <div style="display:flex;align-items:center;gap:10px">
+      <button id="theme-toggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+        <svg id="theme-icon-moon" style="width:17px;height:17px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path>
+        </svg>
+        <svg id="theme-icon-sun" style="width:17px;height:17px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path>
         </svg>
-        <svg id="theme-icon-moon" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path>
-        </svg>
       </button>
-      <a
-        href={`${import.meta.env.BASE_URL}#pricing`}
-        class="hidden h-9 items-center rounded-[11px] bg-accent-solid px-4 text-[13px] font-bold text-white hover:bg-accent-solid-hover sm:flex"
-      >
-        Download
-      </a>
+      <a href={`${base}#pricing`} class="btn btn-primary" style="text-decoration:none;height:36px">Download</a>
     </div>
   </div>
 </header>
 
+<style>
+  .theme-toggle {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-divider);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  .theme-toggle:hover {
+    background: color-mix(in srgb, var(--color-text) 7%, transparent);
+  }
+  /* Show the moon in dark mode (the icon of the current theme), the sun in light. */
+  :global([data-theme="dark"]) #theme-icon-sun,
+  :global([data-theme="light"]) #theme-icon-moon {
+    display: none;
+  }
+</style>
+
 <script>
   const STORAGE_KEY = "bookmarc-site-theme";
-  const button = document.getElementById("theme-toggle")!;
-  const sun = document.getElementById("theme-icon-sun")!;
-  const moon = document.getElementById("theme-icon-moon")!;
 
-  function syncIcon() {
-    const dark = document.documentElement.classList.contains("dark");
-    sun.classList.toggle("hidden", dark);
-    moon.classList.toggle("hidden", !dark);
-  }
-
-  button.addEventListener("click", () => {
-    const dark = document.documentElement.classList.toggle("dark");
-    localStorage.setItem(STORAGE_KEY, dark ? "dark" : "light");
-    syncIcon();
+  document.getElementById("theme-toggle")!.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem(STORAGE_KEY, next);
+    } catch {}
   });
-
-  syncIcon();
 </script>

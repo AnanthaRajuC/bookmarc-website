@@ -2,73 +2,73 @@
 const features = [
   {
     title: "Import from anywhere",
-    body: "Pull bookmarks straight from Chrome, Chromium, Edge, Brave, or Firefox, or import a browser's HTML export — or an export from Pocket, Raindrop, or Pinboard, tags and notes included. Duplicates and tracking-param variants are matched automatically.",
-  },
-  {
-    title: "A home that helps",
-    body: "Bookmarc opens on a Home screen: search right away, see the dead links and duplicates that need a look, and jump back to what you added or opened recently.",
-  },
-  {
-    title: "Save from your browser",
-    body: "An extension for Chrome, Edge, Brave, and Firefox sends the page you're on to Bookmarc, and can pass along each new browser bookmark as you make it. It only talks to the app on your own computer, and pages saved while Bookmarc is closed wait and are sent later.",
+    body: "Five browsers read straight from their own files, everything else through an HTML export — plus Pocket, Raindrop and Pinboard, tags and notes included.",
   },
   {
     title: "Add a bookmark in two seconds",
-    body: "Paste a URL to save a single page instantly — no import required. A first-run checklist gets new users oriented without getting in the way.",
-  },
-  {
-    title: "Keep a copy of a page",
-    body: "Save a readable copy on your computer so a page still opens if the site changes or disappears, and search inside it. It's opt-in, and pages come straight from each site to you — never through a third party.",
+    body: "Paste a URL and it's saved. A first-run checklist orients new users without getting in the way.",
   },
   {
     title: "Organize your way",
-    body: "Folders, categories with auto-classification rules, free-form tags, notes, and a read/unread flag — combine whichever ones fit how you actually think about your links.",
+    body: "Folders, rule-based categories, tags, notes and a read/unread flag, in any combination.",
   },
   {
     title: "Smart filters & Quick Links",
-    body: "Save a search + filter combination as a live, reusable view. Or group frequently used URLs and open them all as new tabs with one click — perfect for a recurring research session.",
+    body: "Save a search as a live view, or group URLs and open the whole set in new tabs with one click.",
   },
   {
     title: "Find what's broken",
-    body: "An async dead-link checker flags pages that no longer load — with a shortcut to the Internet Archive's copy — and a Duplicates screen groups repeat saves so you can clean up in one pass.",
+    body: "An async dead-link checker flags pages that no longer load; Duplicates groups repeat saves.",
   },
   {
     title: "Know your habits",
-    body: "Analytics shows bookmarking activity over time, top hosts, category breakdowns, and a Library Health card tying dead links, duplicates, and forgotten bookmarks together.",
+    body: "Activity over time, top hosts, category breakdowns, and a Library Health card that ties it together.",
   },
   {
     title: "Built for the keyboard",
-    body: "A command palette (Ctrl/Cmd+K) jumps to any screen or action, and full arrow-key navigation lets you browse, select, and open bookmarks without touching the mouse.",
+    body: "A command palette on Ctrl/Cmd+K, and full arrow-key navigation for browsing and opening.",
   },
   {
     title: "Never lose your data",
-    body: "Automatic local, online-safe SQLite backups with one-click restore, plus export to CSV, JSON, or Markdown whenever you want a copy outside the app.",
+    body: "Automatic local SQLite backups with one-click restore, plus CSV, JSON and Markdown export.",
+  },
+  {
+    title: "A home that helps",
+    body: "Open on a Home screen: search at once, see what needs a look, jump back to recent bookmarks.",
+  },
+  {
+    title: "Save from your browser",
+    body: "An extension for Chrome, Edge, Brave and Firefox sends the page you're on to the app on your own computer.",
+  },
+  {
+    title: "Keep a copy of a page",
+    body: "Save a readable copy locally so a page still opens if the site changes — and search inside it.",
   },
   {
     title: "Speaks your language",
-    body: "Fully translated into English, Spanish, German, French, Japanese, and Brazilian Portuguese, chosen automatically from your system's language.",
+    body: "English, Spanish, German, French, Japanese and Brazilian Portuguese, picked from your system.",
   },
 ];
 ---
 
-<section id="features" class="mx-auto max-w-6xl px-5 py-20">
-  <div class="mx-auto mb-12 max-w-xl text-center">
-    <h2 class="text-[28px] font-extrabold tracking-tight text-text sm:text-[34px]">Everything a bookmark deserves</h2>
-    <p class="mt-3 text-[14.5px] leading-relaxed text-text-secondary">
-      Not just a list of links — a proper library, with the organization, health-checking, and insight tools your
-      browser's built-in bookmarks never gave you.
-    </p>
-  </div>
-
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    {
-      features.map((f) => (
-        <div class="rounded-2xl border border-border bg-surface p-5">
-          <div class="mb-3 h-2 w-2 rounded-full bg-accent" />
-          <div class="mb-1.5 text-[14px] font-bold text-text">{f.title}</div>
-          <p class="text-[12.5px] leading-relaxed text-text-secondary">{f.body}</p>
-        </div>
-      ))
-    }
+<section id="features" class="section">
+  <div class="wrap section-pad">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:40px">
+      <h2 class="section-title" style="margin:0">Everything a bookmark deserves</h2>
+      <p style="margin:0;max-width:46ch;font-size:14px" class="text-muted">
+        A proper library rather than a list of links: organization, health checking, and insight your browser never offered.
+      </p>
+    </div>
+    <div class="rule-grid" style="--min:280px">
+      {
+        features.map((f, i) => (
+          <div class="rule-cell">
+            <div style="font-size:11px;letter-spacing:0.1em;color:var(--accent-ink);margin-bottom:10px">{String(i + 1).padStart(2, "0")}</div>
+            <h4 style="margin:0 0 6px;font-size:17px">{f.title}</h4>
+            <p style="margin:0;font-size:13.5px;line-height:1.55">{f.body}</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>

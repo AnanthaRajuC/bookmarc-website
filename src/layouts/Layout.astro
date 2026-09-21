@@ -12,7 +12,7 @@ const pageTitle = title ? `${title} — ${siteConfig.name}` : `${siteConfig.name
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,12 +27,15 @@ const pageTitle = title ? `${title} — ${siteConfig.name}` : `${siteConfig.name
 
     <script is:inline>
       // Applied before paint to avoid a flash of the wrong theme.
-      const stored = localStorage.getItem("bookmarc-site-theme");
-      const theme = stored ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-      document.documentElement.classList.toggle("dark", theme === "dark");
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem("bookmarc-site-theme"); } catch (e) {}
+        var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = stored || (dark ? "dark" : "light");
+      })();
     </script>
   </head>
-  <body class="min-h-screen bg-bg font-sans text-text antialiased">
+  <body>
     <slot />
   </body>
 </html>

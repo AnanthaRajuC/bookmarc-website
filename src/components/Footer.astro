@@ -1,26 +1,96 @@
 ---
 import Logo from "./Logo.astro";
 import { siteConfig } from "../lib/siteConfig";
+
+const base = import.meta.env.BASE_URL;
 const year = new Date().getFullYear();
+
+const product = [
+  { href: `${base}#features`, label: "Features" },
+  { href: `${base}#tour`, label: "Screens" },
+  { href: `${base}#compare`, label: "Compare" },
+  { href: `${base}#pricing`, label: "Pricing" },
+];
+const resources = [
+  { href: `${base}#changelog`, label: "Releases" },
+  { href: `${base}#faq`, label: "FAQ" },
+  { href: `${base}privacy`, label: "Privacy Policy" },
+  { href: siteConfig.githubRepoUrl, label: "GitHub" },
+];
 ---
 
-<footer class="border-t border-border">
-  <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 py-12 sm:flex-row sm:justify-between">
-    <div class="flex items-center gap-2.5">
-      <Logo />
-      <span class="text-[13.5px] font-bold text-text">{siteConfig.name}</span>
+<footer>
+  <div class="wrap" style="padding-block:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:32px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <Logo size="sm" />
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:16px;letter-spacing:0.06em;text-transform:uppercase">{siteConfig.name}</span>
+      </div>
+      <p style="margin:0;font-size:12.5px;max-width:30ch" class="text-muted">
+        A local-first desktop bookmark manager. Your library never leaves your machine.
+      </p>
     </div>
 
-    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[12.5px] font-semibold text-text-secondary">
-      <a href={`${import.meta.env.BASE_URL}#features`} class="hover:text-text">Features</a>
-      <a href={`${import.meta.env.BASE_URL}#pricing`} class="hover:text-text">Pricing</a>
-      <a href={`${import.meta.env.BASE_URL}#faq`} class="hover:text-text">FAQ</a>
-      <a href={`${import.meta.env.BASE_URL}privacy`} class="hover:text-text">Privacy Policy</a>
-      <a href={siteConfig.githubRepoUrl} class="hover:text-text">GitHub</a>
-      <a href={`mailto:${siteConfig.supportEmail}`} class="hover:text-text">Support</a>
+    <div class="footer-col">
+      <div class="footer-heading text-muted">Product</div>
+      {product.map((l) => <a href={l.href} class="nav-link">{l.label}</a>)}
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading text-muted">Resources</div>
+      {resources.map((l) => <a href={l.href} class="nav-link">{l.label}</a>)}
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading text-muted">Contact</div>
+      <a href={`mailto:${siteConfig.supportEmail}`} class="nav-link">{siteConfig.supportEmail}</a>
+    </div>
+
+    <div class="footer-col" style="gap:10px">
+      <div class="footer-heading text-muted">Follow us</div>
+      <a href="#" class="nav-link social">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 4l16 16"></path><path d="M20 4L4 20"></path></svg>
+        <span>@bookmarcapp</span>
+      </a>
+      <a href={siteConfig.githubRepoUrl} class="nav-link social">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M8 6l-5 6 5 6"></path><path d="M16 6l5 6-5 6"></path></svg>
+        <span>github.com/bookmarc</span>
+      </a>
+      <a href="#" class="nav-link social">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M16 12v2a3 3 0 0 0 5 2.2A9 9 0 1 0 17 20"></path></svg>
+        <span>@bookmarc@fosstodon.org</span>
+      </a>
+      <a href="#" class="nav-link social">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><rect x="2" y="5" width="20" height="14"></rect><path d="M10 9l5 3-5 3z"></path></svg>
+        <span>@bookmarcapp</span>
+      </a>
     </div>
   </div>
-  <div class="border-t border-border px-5 py-5 text-center text-[11.5px] text-text-tertiary">
-    © {year} {siteConfig.name}. All rights reserved.
+
+  <div style="border-top:2px solid var(--color-divider)">
+    <div class="wrap text-muted" style="padding-block:18px;font-size:11.5px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between">
+      <span>© {year} {siteConfig.name}. All rights reserved.</span>
+      <span>Built local-first.</span>
+    </div>
   </div>
 </footer>
+
+<style>
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .footer-heading {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>

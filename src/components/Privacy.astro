@@ -1,38 +1,43 @@
 ---
 const points = [
-  { title: "One SQLite file", body: "Your whole library lives in a single local database file on your computer. Nothing is uploaded anywhere." },
-  { title: "No account", body: "No sign-up, no login, no email required to use the app day to day." },
+  { title: "One SQLite file", body: "Your whole library is a single local database on your computer. Nothing is uploaded anywhere." },
+  { title: "No account", body: "No sign-up, no login, no email address to use the app day to day." },
   {
     title: "No telemetry",
-    body: "Bookmarc doesn't phone home. When it checks a link, fetches a site's icon, or saves a copy of a page, it contacts that site directly from your computer — never a Bookmarc server.",
+    body: "Bookmarc doesn't phone home. A link check, a site icon or a saved copy goes straight to that site from your computer, never a Bookmarc server.",
   },
   {
     title: "Copies stay yours",
-    body: "Saved page copies are opt-in and kept in their own file on your computer. Only the readable text is stored — no scripts, styles, or images — and adult sites and local addresses are never fetched.",
+    body: "Saved page copies are opt-in and kept in their own local file. Only the readable text is stored — no scripts, styles or images.",
   },
   {
     title: "The extension stays local",
-    body: "The browser extension reaches Bookmarc over a local-only connection that is off until you switch it on, guarded by a code only you have. Web pages can't use it.",
+    body: "It reaches Bookmarc over a local-only connection that is off until you switch it on, guarded by a code only you have. Web pages can't use it.",
   },
-  { title: "License, not subscription", body: "A one-time purchase activates the app; validation has an offline grace period, so you're never locked out by a network hiccup." },
+  {
+    title: "License, not subscription",
+    body: "One purchase activates the app. Validation has an offline grace period, so a network hiccup never locks you out.",
+  },
 ];
 ---
 
-<section id="privacy" class="border-y border-border bg-surface-2/50 py-20">
-  <div class="mx-auto max-w-5xl px-5">
-    <div class="mx-auto mb-12 max-w-xl text-center">
-      <h2 class="text-[28px] font-extrabold tracking-tight text-text sm:text-[34px]">Local-first, actually</h2>
-      <p class="mt-3 text-[14.5px] leading-relaxed text-text-secondary">
-        Not "local-first" as a marketing line — there is no server for your bookmarks to sync to in the first place.
-      </p>
-    </div>
+<section id="privacy" class="section" style="background:var(--color-accent);color:#fff">
+  <div class="wrap section-pad">
+    <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:24px;font-weight:600;color:#201e1d">Local-first, actually</div>
+    <h2 style="margin:0;font-size:clamp(32px,5.2vw,64px);line-height:1;letter-spacing:-0.03em;max-width:22ch">
+      There is no server for your bookmarks to sync to.
+    </h2>
+  </div>
+</section>
 
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+<section class="section">
+  <div class="wrap section-pad">
+    <div class="rule-grid" style="--min:240px">
       {
         points.map((p) => (
-          <div class="rounded-2xl border border-border bg-surface p-5">
-            <div class="mb-1.5 text-[14px] font-bold text-text">{p.title}</div>
-            <p class="text-[12.5px] leading-relaxed text-text-secondary">{p.body}</p>
+          <div class="rule-cell">
+            <h4 style="margin:0 0 6px;font-size:16px">{p.title}</h4>
+            <p style="margin:0;font-size:13.5px;line-height:1.55">{p.body}</p>
           </div>
         ))
       }

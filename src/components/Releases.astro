@@ -1,0 +1,56 @@
+---
+import { siteConfig } from "../lib/siteConfig";
+
+const releases = [
+  {
+    version: "1.3",
+    latest: true,
+    notes: [
+      "Browser extension for Chrome, Edge, Brave and Firefox",
+      "Saved readable copies of pages, searchable offline",
+      "Home screen, filter panel and column search",
+      "Pocket, Raindrop and Pinboard imports; six languages",
+    ],
+  },
+  {
+    version: "1.2",
+    notes: [
+      "Library Health card ties dead links, duplicates and forgotten bookmarks together",
+      "Quick Links open a whole group in new tabs",
+      "Saved searches became live, reusable views",
+    ],
+  },
+  {
+    version: "1.1",
+    notes: [
+      "Import from Chrome, Chromium, Edge, Brave, Firefox and HTML exports",
+      "Category auto-classification rules; Markdown export",
+      "Command palette and full keyboard navigation",
+    ],
+  },
+];
+---
+
+<section id="changelog" class="section">
+  <div class="wrap section-pad">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:32px">
+      <h2 class="section-title" style="margin:0">Releases</h2>
+      <a href={`${siteConfig.githubRepoUrl}/releases`} style="font-size:14px">All release notes on GitHub</a>
+    </div>
+    <div class="rule-grid">
+      {
+        releases.map((r) => (
+          <div class="rule-cell">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:20px">{r.version}</span>
+              {r.latest && <span class="tag tag-accent">Latest</span>}
+            </div>
+            <ul style="padding-left:18px;font-size:13.5px;line-height:1.6">
+              {r.notes.map((note) => <li>{note}</li>)}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

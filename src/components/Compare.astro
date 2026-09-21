@@ -1,0 +1,45 @@
+---
+const rows = [
+  ["Where your data sits", "Inside a browser profile", "One SQLite file you own"],
+  ["Dead links", "You find out by clicking", "Async checker flags them"],
+  ["Duplicates", "Invisible", "Grouped on one screen"],
+  ["Tags, notes, read/unread", "None", "All of them"],
+  ["Saved searches", "None", "Live, reusable views"],
+  ["Copies of pages", "None — a dead link is gone", "Opt-in readable copy, searchable"],
+  ["Saving from the browser", "Built in, unsorted", "Extension, over a local-only connection"],
+  ["Insight into your library", "None", "Analytics + Library Health"],
+  ["Getting your data out", "One HTML dump", "CSV, JSON, Markdown, or the file itself"],
+  ["Account required", "Usually, to sync", "Never"],
+];
+---
+
+<section id="compare" class="section">
+  <div class="wrap section-pad">
+    <h2 class="section-title">Against your browser's bookmarks</h2>
+    <p style="margin:0 0 32px;max-width:52ch;font-size:15px" class="text-muted">
+      The folder tree in your browser was never meant to hold thousands of links.
+    </p>
+    <div style="overflow-x:auto">
+      <table class="table" style="min-width:560px">
+        <thead>
+          <tr>
+            <th style="width:40%">&nbsp;</th>
+            <th>Browser bookmarks</th>
+            <th style="color:var(--accent-ink)">Bookmarc</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rows.map(([what, browser, app]) => (
+              <tr>
+                <td>{what}</td>
+                <td>{browser}</td>
+                <td>{app}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

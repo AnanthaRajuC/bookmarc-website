@@ -1,0 +1,39 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Import",
+    body: "Point Bookmarc at Chrome, Chromium, Edge, Brave or Firefox and it reads their bookmark files directly. Any other browser — Safari included — comes in through its standard HTML export, as do exports from Pocket, Raindrop and Pinboard, tags and notes included. Duplicates and tracking-parameter variants are matched on the way in.",
+  },
+  {
+    num: "02",
+    title: "Organize",
+    body: "Folders, categories with auto-classification rules, free-form tags, notes, and a read/unread flag — use whichever ones match how you already think about links. Save any search-and-filter combination as a live, reusable view.",
+  },
+  {
+    num: "03",
+    title: "Maintain",
+    body: "The dead-link checker flags pages that no longer load. The Duplicates screen groups repeat saves so you clean up in one pass. Analytics and a Library Health card keep score, and local backups mean a mistake is always reversible.",
+  },
+];
+---
+
+<section id="how" class="section">
+  <div class="wrap section-pad">
+    <h2 class="section-title">Three steps, then it's just yours</h2>
+    <p style="margin:0 0 40px;max-width:52ch;font-size:15px" class="text-muted">
+      Nothing to configure, nothing to sign up for. Import, organize, and let the app tell you what's rotting.
+    </p>
+    <div class="rule-grid">
+      {
+        steps.map((s) => (
+          <div class="rule-cell" style="padding:24px">
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;color:var(--accent-ink)">{s.num}</div>
+            <h3 style="margin:12px 0 8px;font-size:22px">{s.title}</h3>
+            <p style="margin:0;font-size:14px;line-height:1.55">{s.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

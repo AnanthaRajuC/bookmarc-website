@@ -2,23 +2,31 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import HowItWorks from "../components/HowItWorks.astro";
 import Features from "../components/Features.astro";
-import Gallery from "../components/Gallery.astro";
+import Tour from "../components/Tour.astro";
+import Compare from "../components/Compare.astro";
 import Privacy from "../components/Privacy.astro";
 import Pricing from "../components/Pricing.astro";
+import Releases from "../components/Releases.astro";
 import Faq from "../components/Faq.astro";
+import Cta from "../components/Cta.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
   <Header />
-  <main>
+  <main id="top">
     <Hero />
+    <HowItWorks />
     <Features />
-    <Gallery />
+    <Tour />
+    <Compare />
     <Privacy />
     <Pricing />
+    <Releases />
     <Faq />
+    <Cta />
   </main>
   <Footer />
 </Layout>
