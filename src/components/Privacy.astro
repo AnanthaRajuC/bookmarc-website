@@ -2,7 +2,18 @@
 const points = [
   { title: "One SQLite file", body: "Your whole library lives in a single local database file on your computer. Nothing is uploaded anywhere." },
   { title: "No account", body: "No sign-up, no login, no email required to use the app day to day." },
-  { title: "No telemetry", body: "Bookmarc doesn't phone home. Dead-link checks and every other feature run entirely from your own machine." },
+  {
+    title: "No telemetry",
+    body: "Bookmarc doesn't phone home. When it checks a link, fetches a site's icon, or saves a copy of a page, it contacts that site directly from your computer — never a Bookmarc server.",
+  },
+  {
+    title: "Copies stay yours",
+    body: "Saved page copies are opt-in and kept in their own file on your computer. Only the readable text is stored — no scripts, styles, or images — and adult sites and local addresses are never fetched.",
+  },
+  {
+    title: "The extension stays local",
+    body: "The browser extension reaches Bookmarc over a local-only connection that is off until you switch it on, guarded by a code only you have. Web pages can't use it.",
+  },
   { title: "License, not subscription", body: "A one-time purchase activates the app; validation has an offline grace period, so you're never locked out by a network hiccup." },
 ];
 ---

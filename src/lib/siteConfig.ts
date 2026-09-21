@@ -3,7 +3,7 @@ export const siteConfig = {
   name: "Bookmarc",
   tagline: "A bookmark manager that stays on your computer.",
   description:
-    "Bookmarc is a local-first desktop bookmark manager: import from every browser, organize with folders/categories/tags, find dead links and duplicates, and see your bookmarking habits in Analytics — with nothing ever sent to a server.",
+    "Bookmarc is a local-first desktop bookmark manager: import from every browser, organize with folders, categories and tags, find dead links and duplicates, keep readable copies of pages, and save straight from your browser — with your bookmarks never leaving your computer.",
 
   // Lemon Squeezy checkout / product page URL.
   checkoutUrl: "https://bookmarc.lemonsqueezy.com/buy/REPLACE_ME",
